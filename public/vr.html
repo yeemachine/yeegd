@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR Chat Browser</title>
+    <meta name="description" content="VR Multi-user Browser">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="easyrtc/easyrtc.js"></script>
+    <script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js"></script>
+  	<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+<!--     <script src="networked-aframe.js"></script> -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <script src="/js/spawn-in-circle.component.js"></script>
+    <script src="/js/dynamic-room.component.js"></script>
+    <script src="/js/getURL.js"></script>
+    <style>
+      body{
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      }
+      .loader{
+        position:fixed;
+        top:0;left:0;
+        width:100vw;
+        height:100vh;
+        background-color:black;
+        z-index:999
+      }
+      .back{
+        position:fixed;
+        top:10px;
+        left:10px;
+/*         border:1px solid white; */
+        padding:10px;
+        color:white;
+        text-decoration:none;
+        background-color:rgba(0,0,0,1);
+        opacity:0.3
+      }
+      .back:hover{
+        opacity:1;
+        background-color:#666
+      }
+      
+    </style>
+   <template id="avatar-template">
+            <a-entity static-body class="avatar" networked-audio-source> 
+              <a-sphere class="head"
+                color="#5985ff"
+                scale="0.45 0.5 0.4"
+                random-color
+              ></a-sphere>
+              <a-entity class="face"
+                position="0 0.05 0"
+              >
+                <a-sphere class="eye"
+                  color="#efefef"
+                  position="0.16 0.1 -0.35"
+                  scale="0.12 0.12 0.12"
+                >
+                  <a-sphere class="pupil"
+                    color="#000"
+                    position="0 0 -1"
+                    scale="0.2 0.2 0.2"
+                  ></a-sphere>
+                </a-sphere>
+                <a-sphere class="eye"
+                  color="#efefef"
+                  position="-0.16 0.1 -0.35"
+                  scale="0.12 0.12 0.12"
+                >
+                  <a-sphere class="pupil"
+                    color="#000"
+                    position="0 0 -1"
+                    scale="0.2 0.2 0.2"
+                  ></a-sphere>
+                </a-sphere>
+              </a-entity>
+            </a-entity>          
+        </template>
+    <script>
+      // Define custom schema for syncing avatar color, set by random-color, and name tag
+      NAF.schemas.add({
+        template: '#avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.head',
+            component: 'material',
+            property: 'color'
+          }
+        ]
+      });  
+          </script>
+    
+  </head>
+  
+  <body class="hidden">
+    <div class="loader">
+    </div>
+    <a-scene 
+      dynamic-room 
+      networked-scene="
+      room: basic;
+      adapter: easyrtc;
+      audio: true;
+      debug: true;
+    " physics="gravity:-3;iteration:20"
+      fog="type: linear; color: #AAA">
+      <a-assets>
+      </a-assets>
+      <a-entity id="block"></a-entity>
+      <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" camera 
+                universal-controls="movementControls: gamepad, keyboard"
+                kinematic-body
+                jump-ability
+                position="0 1000 0" >
+        <a-entity class="avatar">
+        <a-sphere class="head"
+          visible="false"
+          random-color
+        ></a-sphere>
+        </a-entity>
+         
+      </a-entity>
+      <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
+      <a-entity id="world">
+        <a-entity id="walls">
+          <a-box id="ground" static-body geometry="width:125;height:125;depth:15" material="transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;" position="0 -8 0" visible="false" rotation="-90 0 0"></a-box>
+      <a-box static-body geometry="width:10000;height:10000" position="0 0 -40" visible="false"></a-box>
+      <a-box static-body geometry="width:10000;height:10000" position="0 0 35" visible="false"></a-box>
+      <a-box static-body geometry="width:10000;height:10000" position="-40 0 0" rotation="0 90 0" visible="false"></a-box>
+      <a-box static-body geometry="width:10000;height:10000" position="35 0 0" rotation="0 90 0" visible="false"></a-box>
+        </a-entity>
+      </a-entity>
+      <a-sky id="sky"  rotation="0 -90 0"></a-sky>      
+    </a-scene>
+    <a class="back" href="/">Back to Lobby</a>
+    <script>
+      // On mobile remove elements that are resource heavy
+      var isMobile = AFRAME.utils.device.isMobile();
+
+      if (isMobile) {
+      }
+      getURL();
+    </script>
+  </body>
+</html>
