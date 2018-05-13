@@ -20,9 +20,6 @@ var database = firebase.database();
 var projectRef = database.ref('spreadsheets2/projects');
 var projectID = []
 
-
-
-
   projectRef.on('value', function(snap) {
     var firebaseContainer = $('<section class="firebaseLoad"></section>')
     var secondaryContainer = $('<section class="secondaryLoad"></section>')
@@ -163,14 +160,6 @@ var projectID = []
     nav.append("<div class='linkedin'><a href='https://www.linkedin.com/in/yeemachine/' target='blank'>LinkedIn</a></div><div class='about'><a>About</a></div>")
     firebaseContainer.append(nav, homeContainer, secondaryContainer)  
     
-//     var style = document.createElement('style');
-
-//         if (style.styleSheet) {
-//             style.styleSheet.cssText = css;
-//         } else {
-//             style.appendChild(document.createTextNode(css));
-//         }
-//         document.getElementsByTagName('head')[0].appendChild(style);
     
         function aboutClick() {
           var heroHeight = $('.hero').height()
@@ -186,7 +175,7 @@ var projectID = []
           $('.right').addClass('hide');
           var secondaryContainer = $('<container aria-hidden="false" class="secondaryContainer"><i class="material-icons button">&#xE5CD;</i></container>')
           var aboutTitle = "From CA to NY"
-          var aboutText = "I am an aspring graphic designer and developer interested in the potential of web technologies. Originally from California, I am currently attending Cooper Union in New York City. All websites shown here, including this one, are hand coded with care without the use of any templates."
+          var aboutText = "I am an aspring graphic designer and developer interested in the potential of web technologies. Originally from California, I am currently attending Cooper Union in New York City. In much of my work, I prototype with code as part of my process. All websites shown here, including this one, are hand coded with without the use templates."
           var skillList = "HTML / CSS / JS / PHP / JQuery / Three.js / Web VR-AR / WebGL / Web Audio API / Vue.js / Node.js / Lottie.js / Google Firebase / Google Script / Chrome Extensions / Wordpress"
           var skillList2 = "Photoshop / Illustrator / InDesign / After Effects / Final Cut Pro / Motion / Blender / RoboFont /Bodymovin (After Effects) / Sketch"
           var experience = "The Herb Lubalin Study Center of Design and Typography<br><i>New York, NY – Feb 2018 to Present</i><br><br>Trilon Graphics / Digital Printers<br><i>New York, NY – Feb 2018 to Present</i><br><br>SFMOMA.domains<br><i>New York, NY – Jan 2018 to Mar 2018</i><br><br>Typographics<br><i>New York, NY – Sep 2017 to Present</i><br><br>The Cooper Union Intra-Disciplinary Seminar<br><i>New York, NY – Sep 2017 to Present</i><br><br>Piscatello Design Centre<br><i>New York, NY – May 2017 to Aug 2017</i><br><br>Facebook Global Hackathon 2016<br><i>Menlo Park, CA – Nov 2016</i>"
@@ -243,25 +232,11 @@ var projectID = []
         $('.'+$(this).attr("project")).removeClass('hover');
       }
     })
-    
-    
-
-      
-    
-    
+       
     window.onscroll = function() {
       scroll()
-    };
-
-    // Get the header
-    
-
-    
-    
-    
+    };   
   
-  });
-  
-  
+  }); 
   
 })
