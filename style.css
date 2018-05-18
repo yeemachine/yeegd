@@ -142,7 +142,7 @@ h3.logo.folded.about {
     max-width:520px;
 }
 .secondaryContainer .text .para i{
-  opacity:0.3
+/*   opacity:0.3 */
 }
 .secondaryContainer h2{
   font-size:16px;
@@ -169,21 +169,25 @@ h3.logo.folded.about {
   background-color:black;
   color:white
 }
-.secondaryContainer .embed-container, .secondaryContainer img{
+.secondaryContainer .embed-container, .secondaryContainer .block{
   width:100%;
   grid-column: span 2
 }
 .secondaryContainer img{
-  height:auto;
+  width:100%;
 }
 .secondaryContainer svg{
   max-height:20vh;
 }
-.secondaryContainer .embed-container.horizontal, .secondaryContainer img.horizontal{
+.secondaryContainer .embed-container.horizontal, .secondaryContainer .block.horizontal{
   grid-column: span 4
 }
-.secondaryContainer .embed-container.vertical, .secondaryContainer img.vertical{
+.secondaryContainer .embed-container.vertical, .secondaryContainer .block.vertical{
   grid-row: span 2
+}
+.caption{
+  opacity:0.3;
+  margin-top: 0.5em;
 }
 .videoContainer{
   grid-column-start:1;
@@ -411,16 +415,16 @@ nav div.selected:before{
     margin-top:5vw;
     margin:5vw;
   }
-  .secondaryContainer img, .secondaryContainer video{
+  .secondaryContainer .block, .secondaryContainer video{
     grid-column: span 1
   }
-  .secondaryContainer .embed-container.horizontal, .secondaryContainer img.horizontal{
+  .secondaryContainer .embed-container.horizontal, .secondaryContainer .block.horizontal{
     grid-column:span 1
   } 
   .videoContainer{
     grid-column-end: 1;
   }
-  .secondaryContainer .videoContainer:last-child, .secondaryContainer img:last-child{
+  .secondaryContainer .videoContainer:last-child, .secondaryContainer .block:last-child{
         margin-bottom:15vw
   }
 

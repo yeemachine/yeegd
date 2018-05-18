@@ -130,12 +130,13 @@ var projectID = []
         var projectVideo = projectData[project][i].video
         var projectOrientation = projectData[project][i].orientation
         var projectAspect = projectData[project][i].aspect
+        var projectCaption = projectData[project][i].caption
         console.log(projectPhoto,projectVideo,projectText,projectYear)
         if(projectPhoto !== ""){
-          secondaryContainer.append('<img class="'+projectOrientation+'" src="'+projectPhoto+'"/>')
+          secondaryContainer.append('<div class="block '+projectOrientation+'"><img class="" src="'+projectPhoto+'"/><p class="caption">'+projectCaption+'</p></div>')
         }
         if(projectVideo !== ""){
-          secondaryContainer.append("<div class='videoContainer'><div class='embed-container "+projectOrientation+"' style='"+projectAspect+"'><iframe src='"+projectVideo+"' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></div>")
+          secondaryContainer.append("<div class='videoContainer block "+projectOrientation+"'><div class='embed-container' style='"+projectAspect+"'><iframe src='"+projectVideo+"' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><p class='caption'>"+projectCaption+"</p></div>")
         }
         }
       
