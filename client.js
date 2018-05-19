@@ -133,7 +133,7 @@ var projectID = []
         var projectCaption = projectData[project][i].caption
         console.log(projectPhoto,projectVideo,projectText,projectYear)
         if(projectPhoto !== ""){
-          secondaryContainer.append('<div class="block '+projectOrientation+'"><img class="" src="'+projectPhoto+'"/><p class="caption">'+projectCaption+'</p></div>')
+          secondaryContainer.append('<div class="block '+projectOrientation+'"><img class="" src="'+projectPhoto+'"/><p class="caption"><i>'+projectCaption+'</i></p></div>')
         }
         if(projectVideo !== ""){
           secondaryContainer.append("<div class='videoContainer block "+projectOrientation+"'><div class='embed-container' style='"+projectAspect+"'><iframe src='"+projectVideo+"' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><p class='caption'>"+projectCaption+"</p></div>")
