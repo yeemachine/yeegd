@@ -55,16 +55,19 @@
         var ratio = window.pageYOffset/logoScroll
         var color = ratio*255
         var colorFixed = color.toFixed(0)
-        var opacity = 1-ratio*0.95
+        var opacity = 1-ratio*0.8
+        var opacity2 = 1-ratio*0.8
         var opacityFixed = opacity.toFixed(4)
+        var opacityFixed2 = opacity2.toFixed(4)
         $(".hero .yeeshadow").css("margin-top", -0.8+ratio*0.8+"em");
         $(".hero").css("opacity",opacityFixed);
+        $(".hero span").css("opacity",opacityFixed2);
         // $(".red").css("color", "rgb(0,0,"+colorFixed+")");
       }
       if((window.pageYOffset/logoScroll) >= 1 ){
         $(".hero .yeeshadow").css("margin-top", "0em");
         // $(".red").css("color", "rgb(0,0,255)");
-        $(".hero").css("opacity","0.05");
+        $(".hero").css("opacity","0.2");
 
       }
       if (window.pageYOffset >= sticky) {
