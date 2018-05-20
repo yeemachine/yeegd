@@ -48,15 +48,15 @@ var projectID = []
         if(projectHome === true){
           console.log(projectName)
           if(projectPhoto !== ""){
-             homeContainer.append('<div class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'" ><div class="title">'+projectName+'<span>'+projectYear+'</span></div><img src="'+projectPhoto+'" style="'+projectCss+'"/></div>')
+             homeContainer.append('<a href="#'+item+'" class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'" ><div class="title">'+projectName+'<span>'+projectYear+'</span></div><img src="'+projectPhoto+'" style="'+projectCss+'"/></a>')
           }
           if(projectVideo !== ""){
-            homeContainer.append('<div class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'"><div class="title">'+projectName+'<span>'+projectYear+'</span></div><video autoplay loop playsinline mute style="'+projectCss+'"><source src="'+projectVideo+'" type="video/mp4">Your browser does not support the video tag.</video></div>')
+            homeContainer.append('<a class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'"><div class="title">'+projectName+'<span>'+projectYear+'</span></div><video autoplay loop playsinline mute style="'+projectCss+'"><source src="'+projectVideo+'" type="video/mp4">Your browser does not support the video tag.</video></a>')
           } 
         }
       }
       // console.log(projectName, projectLength)
-      nav.append("<div class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</div>")
+      nav.append("<a href='#"+item+"' class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</a>")
     });
     
     function firebaseClick(project) {
@@ -147,9 +147,21 @@ var projectID = []
 
       $('.button').bind('click', function(){
         firebaseClose()
+        
       })
     }
     function firebaseClose() {
+      var lastPos = $(window).scrollTop();
+      var hash = location.hash.replace('#','');
+         if(hash != ''){
+        // Show the hash if it's set
+        // alert(hash);
+
+        // Clear the hash in the URL
+        location.hash = '';
+        $(window).scrollTop(lastPos);
+        }
+      
       $(".selected").removeClass("selected")
       $(".show").removeClass("show")
       $(".hover").removeClass("hover")
@@ -206,6 +218,14 @@ var projectID = []
      $('.projectClick').bind('click', function(){
       firebaseClick($(this).attr("project"));
       })
+    
+      if(location.hash.replace('#','') != ''){
+        console.log(location.hash.replace('#',''))
+        firebaseClick(location.hash.replace('#',''));
+      }
+    
+
+    
     
     $('.about').bind('click', function(){
       aboutClick();

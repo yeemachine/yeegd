@@ -278,7 +278,7 @@ nav.sticky{
     position:fixed;
 /*   top:2.5vw; */
 }
-nav div{
+nav a{
   width: intrinsic;          
   width: -moz-max-content;    
   width: -webkit-max-content;
@@ -287,7 +287,7 @@ nav div{
   margin-bottom:.5vw;
   opacity:0.3
 }
-nav div:before{
+nav a:before{
     content: "";
     height: 4px;
     width: 0;
@@ -309,6 +309,9 @@ nav div:before{
   opacity:1;
   text-transform:uppercase;
 }
+.about a, .linkedin a{
+  opacity:1
+}
 nav a:hover{
   color:blue
 }
@@ -323,10 +326,10 @@ nav a:hover{
   cursor: pointer
 }
 
-nav div.selected, nav div.hover{
+nav a.selected, nav a.hover{
     opacity:1
 }
-nav div.selected:before{
+nav a.selected:before{
   width:4px
 }
 .ham{
