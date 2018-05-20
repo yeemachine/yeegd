@@ -16,7 +16,7 @@
   padding-right:2vw;
 }
 .right.hide{
-  opacity:0
+/*   opacity:0 */
 }
 .right>p:nth-child(even), .right>.line:nth-child(even){
   -webkit-transform: skew(60deg,-30deg) scaley(.66667) !important;
