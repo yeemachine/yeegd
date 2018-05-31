@@ -274,7 +274,7 @@ nav{
   display:flex;
   flex-direction:column;
   height: calc(100vh - 5vw);
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 nav.sticky{
     position:fixed;
