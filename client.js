@@ -27,7 +27,7 @@ var projectID = []
     var speed = 10;
     setInterval(function () {
        start += 0.0125;
-        console.log('timeout')
+        // console.log('timeout')
         scroll();
         scrolltwo();
        }, speed);
@@ -39,7 +39,7 @@ var projectID = []
     var homeContainer = $('<container class="homeContainer"></container>')
      var projectData = snap.val();
      projectID = Object.keys(projectData)
-     console.log(projectID)
+     // console.log(projectID)
      var css = ""
 
     projectID.forEach(function(item){
@@ -58,7 +58,7 @@ var projectID = []
         var projectOrientation = projectData[item][i].orientation
         
         if(projectHome === true){
-          console.log(projectName)
+          // console.log(projectName)
           if(projectPhoto !== ""){
              homeContainer.append('<a href="#'+item+'" class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'" ><div class="title">'+projectName+'<span>'+projectYear+'</span></div><img src="'+projectPhoto+'" style="'+projectCss+'"/></a>')
           }
@@ -127,7 +127,7 @@ var projectID = []
       $('body').addClass('lock');
       $(".selected").removeClass("selected");
       var secondaryContainer = $('<container aria-hidden="false" class="secondaryContainer"><i class="material-icons button">&#xE5CD;</i></container>')
-      console.log(project);
+      // console.log(project);
       var projectName = projectData[project][0].project
       var projectLength = Object.keys(projectData[project]).length
       var projectYear = projectData[project][0].year
@@ -141,7 +141,7 @@ var projectID = []
         var projectOrientation = projectData[project][i].orientation
         var projectAspect = projectData[project][i].aspect
         var projectCaption = projectData[project][i].caption
-        console.log(projectPhoto,projectVideo,projectText,projectYear)
+        // console.log(projectPhoto,projectVideo,projectText,projectYear)
         if(projectPhoto !== ""){
           secondaryContainer.append('<div class="block '+projectOrientation+'"><img class="" src="'+projectPhoto+'"/><p class="caption"><i>'+projectCaption+'</i></p></div>')
         }
@@ -230,7 +230,7 @@ var projectID = []
       })
     
       if(location.hash.replace('#','') != ''){
-        console.log(location.hash.replace('#',''))
+        // console.log(location.hash.replace('#',''))
         firebaseClick(location.hash.replace('#',''));
       }
     
