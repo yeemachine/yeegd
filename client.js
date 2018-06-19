@@ -6,6 +6,7 @@
 
 $(function() {
   
+  
   var config = {
     apiKey: "AIzaSyCIi4whBgkNKOoediWDR2oxVePerWpMpHg",
     authproject: "yeemachine-fc409.firebaseapp.com",
@@ -21,6 +22,17 @@ var projectRef = database.ref('spreadsheets2/projects');
 var projectID = []
 
   projectRef.on('value', function(snap) {
+    
+    var start = 0;
+    var speed = 10;
+    setInterval(function () {
+       start += 0.0125;
+        console.log('timeout')
+        scroll();
+        scrolltwo();
+       }, speed);
+    
+    
     var firebaseContainer = $('<section class="firebaseLoad"></section>')
     var secondaryContainer = $('<section class="secondaryLoad"></section>')
     var nav = $('<nav><div class="home">Projects</div></nav>');
@@ -107,11 +119,9 @@ var projectID = []
                       }
                   }())
       
-      
-      
-      $('.secondaryLoad').scroll(function() {
-          scrolltwo();
-      });
+      // $('.secondaryLoad').scroll(function() {
+      //     scrolltwo();
+      // });
       
       $('.right').addClass('hide');
       $('body').addClass('lock');
@@ -208,7 +218,7 @@ var projectID = []
             $('.ham .material-icons').html('&#xE5D2;')
           }
           $('.secondaryLoad').scroll(function() {
-          scrolltwo();
+          // scrolltwo();
           });
         }
     
@@ -254,9 +264,11 @@ var projectID = []
       }
     })
        
-    window.onscroll = function() {
-      scroll()
-    };   
+//     window.onscroll = function() {
+      
+//     };
+
+
   
   }); 
   
