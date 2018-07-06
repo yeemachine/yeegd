@@ -21,9 +21,7 @@ var database = firebase.database();
 var projectRef = database.ref('spreadsheets3');
 var projectID = []
 
-  projectRef.on('value', function(snap) {
-
-    
+  projectRef.once('value').then( function(snap) {
     var start = 0;
     var speed = 10;
     setInterval(function () {
@@ -43,7 +41,7 @@ var projectID = []
     var refData = snap.val();
     var projectData = refData['projects']
     projectID = Object.keys(projectData)
-    console.log(projectID);
+    // console.log(projectID);
     
     var css = ""
 
@@ -55,17 +53,18 @@ var projectID = []
       var projectYear = projectData[item].year
       var projectTags = projectData[item]['tags']
       
-      console.log(projectName, projectHome, projectCss, projectTags)
+      // console.log(projectName, projectHome, projectCss, projectTags)
       var titleContainer = $('<div class="title">'+projectName+'<span>'+projectYear+'</span></div>')
       
-      var projectContainer = $('<a href="#'+item+'" class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'" ><img src="'+projectHome+'" style="'+projectCss+'"/></a>')
+      var projectContainer = $('<div class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
       
       projectContainer.append(titleContainer);
       
       var tagContainer = $('<div class="tags"></div>')
       if(projectTags !== undefined){
-        projectTags.forEach(function(item){
-          tagContainer.append('<div>'+item+'</div>')  
+        projectTags.forEach(function(item, i){
+          var time = .15 + (.2*i);
+          tagContainer.append('<div style="transition:transform '+time+'s, background-color .125s">'+item+'</div>')  
         });
         projectContainer.append(tagContainer);
       }
@@ -140,7 +139,7 @@ var projectID = []
       var projectYear = projectData[project].year
       var projectText = projectData[project].desc
       
-      console.log(projectName, projectLength, projectYear, projectText)
+      // console.log(projectName, projectLength, projectYear, projectText)
 
       secondaryContainer.append('<h3 class="logo folded about"><div class="line solid"><p class="yeehover" style="margin-top:-0.8em">&nbsp</p><p>'+projectName+'<span> — '+projectYear+'</span></p></div><div class="line shadow"><p class="yeehover" style="margin-top:-0.8em">'+projectName+'<span> — '+projectYear+'</span></p></div></h3><div class="text"><div class="para">'+projectText+'</div></div>')
       
@@ -234,7 +233,7 @@ var projectID = []
      $('.projects').html(firebaseContainer)
     
    
-     $('.projectClick').bind('click', function(){
+     $('.projectClick a').bind('click', function(){
       firebaseClick($(this).attr("project"));
       })
     
