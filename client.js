@@ -18,16 +18,18 @@ $(function() {
   
 firebase.initializeApp(config);
 var database = firebase.database();
-var projectRef = database.ref('spreadsheets2/projects');
+var projectRef = database.ref('spreadsheets3');
 var projectID = []
 
   projectRef.on('value', function(snap) {
+
     
     var start = 0;
     var speed = 10;
     setInterval(function () {
        start += 0.0125;
         // console.log('timeout')
+      
         scroll();
         scrolltwo();
        }, speed);
@@ -37,37 +39,42 @@ var projectID = []
     var secondaryContainer = $('<section class="secondaryLoad"></section>')
     var nav = $('<nav><div class="home">Projects</div></nav>');
     var homeContainer = $('<container class="homeContainer"></container>')
-     var projectData = snap.val();
-     projectID = Object.keys(projectData)
-     // console.log(projectID)
-     var css = ""
+    
+    var refData = snap.val();
+    var projectData = refData['projects']
+    projectID = Object.keys(projectData)
+    console.log(projectID);
+    
+    var css = ""
 
     projectID.forEach(function(item){
-      var projectName = projectData[item][0].project
-      var projectLength = Object.keys(projectData[item]).length
+      var projectName = projectData[item].displayName
+      var projectHome = projectData[item]['home'].url
+      var projectCss = projectData[item]['home'].css
+      var projectOrder = projectData[item].order
+      var projectYear = projectData[item].year
+      var projectTags = projectData[item]['tags']
       
-      for (var i=0; i<projectLength; i++){
-        var projectPhoto = projectData[item][i].photo
-        var projectVideo = projectData[item][i].video
-        var projectText = projectData[item][i].text
-        var projectYear = projectData[item][i].year
-        var projectHome = projectData[item][i].home
-        var projectCss = projectData[item][i].css
-        var projectAspect = projectData[item][i].aspect
-        var projectOrder = projectData[item][i].homeOrder
-        var projectOrientation = projectData[item][i].orientation
-        
-        if(projectHome === true){
-          // console.log(projectName)
-          if(projectPhoto !== ""){
-             homeContainer.append('<a href="#'+item+'" class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'" ><div class="title">'+projectName+'<span>'+projectYear+'</span></div><img src="'+projectPhoto+'" style="'+projectCss+'"/></a>')
-          }
-          if(projectVideo !== ""){
-            homeContainer.append('<a class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'"><div class="title">'+projectName+'<span>'+projectYear+'</span></div><video autoplay loop playsinline mute style="'+projectCss+'"><source src="'+projectVideo+'" type="video/mp4">Your browser does not support the video tag.</video></a>')
-          } 
-        }
+      console.log(projectName, projectHome, projectCss, projectTags)
+      var titleContainer = $('<div class="title">'+projectName+'<span>'+projectYear+'</span></div>')
+      
+      var projectContainer = $('<a href="#'+item+'" class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'" ><img src="'+projectHome+'" style="'+projectCss+'"/></a>')
+      
+      projectContainer.append(titleContainer);
+      
+      var tagContainer = $('<div class="tags"></div>')
+      if(projectTags !== undefined){
+        projectTags.forEach(function(item){
+          tagContainer.append('<div>'+item+'</div>')  
+        });
+        projectContainer.append(tagContainer);
       }
-      // console.log(projectName, projectLength)
+      
+      
+      homeContainer.append(projectContainer);
+      
+      
+
       nav.append("<a href='#"+item+"' class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</a>")
     });
     
@@ -128,19 +135,21 @@ var projectID = []
       $(".selected").removeClass("selected");
       var secondaryContainer = $('<container aria-hidden="false" class="secondaryContainer"><i class="material-icons button">&#xE5CD;</i></container>')
       // console.log(project);
-      var projectName = projectData[project][0].project
-      var projectLength = Object.keys(projectData[project]).length
-      var projectYear = projectData[project][0].year
-      var projectText = projectData[project][0].text
-
+      var projectName = projectData[project].displayName
+      var projectLength = projectData[project]['img'].length
+      var projectYear = projectData[project].year
+      var projectText = projectData[project].desc
+      
+      console.log(projectName, projectLength, projectYear, projectText)
 
       secondaryContainer.append('<h3 class="logo folded about"><div class="line solid"><p class="yeehover" style="margin-top:-0.8em">&nbsp</p><p>'+projectName+'<span> — '+projectYear+'</span></p></div><div class="line shadow"><p class="yeehover" style="margin-top:-0.8em">'+projectName+'<span> — '+projectYear+'</span></p></div></h3><div class="text"><div class="para">'+projectText+'</div></div>')
+      
       for (var i=0; i<projectLength; i++){
-        var projectPhoto = projectData[project][i].photo
-        var projectVideo = projectData[project][i].video
-        var projectOrientation = projectData[project][i].orientation
-        var projectAspect = projectData[project][i].aspect
-        var projectCaption = projectData[project][i].caption
+        var projectPhoto = projectData[project]['img'][i].photo
+        var projectVideo = projectData[project]['img'][i].video
+        var projectOrientation = projectData[project]['img'][i].orientation
+        var projectAspect = projectData[project]['img'][i].aspect
+        var projectCaption = projectData[project]['img'][i].caption
         // console.log(projectPhoto,projectVideo,projectText,projectYear)
         if(projectPhoto !== ""){
           secondaryContainer.append('<div class="block '+projectOrientation+'"><img class="" src="'+projectPhoto+'"/><p class="caption"><i>'+projectCaption+'</i></p></div>')

@@ -23,7 +23,6 @@ a{
 .hero{
   height:70vh;
   width:100vw;
-  
 }
 .firebaseLoad{
   position:relative
@@ -46,6 +45,7 @@ a{
   position:relative;
   height:20vw;
   border: 2px solid transparent;
+  border-radius:5px;
 }
 .homeThumb.hover{
   border-color:black;
@@ -62,7 +62,21 @@ a{
   opacity:.075;
   filter:grayscale(100%)
 }
-
+.tags{
+  font-size:1vw;
+  display:inline-block;
+  margin-left:5px;
+}
+.tags div{
+  display:inline-block;
+  padding:5px 10px 5px 10px;
+  margin-right:5px;
+  margin-top:5px;
+  background-color:black;
+  color:white;
+  text-transform: capitalize;
+  border-radius:5px;
+}
 .title{
     width: intrinsic;          
     width: -moz-max-content;    
