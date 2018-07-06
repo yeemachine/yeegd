@@ -66,6 +66,7 @@ a{
   font-size:1vw;
   display:inline-block;
   margin-left:5px;
+  opacity:0;
 }
 .tags div{
   display:inline-block;
@@ -117,6 +118,9 @@ a{
    left: 0;
 }
 .homeThumb.hover .title{
+  opacity:1;
+}
+.homeThumb.hover .tags{
   opacity:1;
 }
 .homeThumb.hover .title:before{
