@@ -52,19 +52,22 @@ var projectID = []
       var projectOrder = projectData[item].order
       var projectYear = projectData[item].year
       var projectTags = projectData[item]['tags']
+      var projectTagMapped = projectTags.map(str => str.replace(/\s/g, '').toLowerCase());
+      var projectTagMappedString = projectTagMapped.join(" ");
       
       // console.log(projectName, projectHome, projectCss, projectTags)
       var titleContainer = $('<div class="title">'+projectName+'<span>'+projectYear+'</span></div>')
       
-      var projectContainer = $('<div class="homeThumb projectClick '+item+'" project="'+item+'" style="order:'+projectOrder+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
+      var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+'" tags="'+projectTagMappedString+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
       
       projectContainer.append(titleContainer);
       
       var tagContainer = $('<div class="tags"></div>')
       if(projectTags !== undefined){
         projectTags.forEach(function(item, i){
+          var undercaseTag = item.replace(/\s/g, '').toLowerCase()
           var time = .15 + (.2*i);
-          tagContainer.append('<div style="transition:transform '+time+'s, background-color .125s">'+item+'</div>')  
+          tagContainer.append('<div class="'+undercaseTag+'" style="transition:transform '+time+'s, background-color .125s" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
         });
         projectContainer.append(tagContainer);
       }
@@ -233,9 +236,37 @@ var projectID = []
      $('.projects').html(firebaseContainer)
     
    
-     $('.projectClick a').bind('click', function(){
+     $('.projectClick a, a.projectClick').bind('click', function(){
       firebaseClick($(this).attr("project"));
       })
+    
+    $('.tags div').bind('click', function(){
+      var tagID = $(this).attr("tags")
+      var allTag = $('.'+tagID);
+
+      if($(this).hasClass('tagged') === true){
+        allTag.removeClass('tagged')
+          if ($('.tagged')[0]) {
+          } else {
+          $('.homeContainer').removeClass('tagMode')
+            console.log('notagmode')
+          }
+      }else{
+        $('.tagged').removeClass('tagged')
+        $('.homeContainer').addClass('tagMode')
+        allTag.addClass('tagged')
+      }
+      })
+    
+    $(document).click(function(event) { 
+    if(!$(event.target).closest('.homeThumb').length) {
+        if($('.tagged')[0]) {
+          // console.log('removealltags')
+          $('.tagged').removeClass('tagged')
+          $('.homeContainer').removeClass('tagMode')
+        }
+    }        
+    });
     
       if(location.hash.replace('#','') != ''){
         // console.log(location.hash.replace('#',''))
