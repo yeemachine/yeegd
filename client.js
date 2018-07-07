@@ -66,8 +66,8 @@ var projectID = []
       if(projectTags !== undefined){
         projectTags.forEach(function(item, i){
           var undercaseTag = item.replace(/\s/g, '').toLowerCase()
-          var time = .15 + (.2*i);
-          tagContainer.append('<div class="'+undercaseTag+'" style="transition:transform '+time+'s, background-color .125s" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
+          var time = (.05*i);
+          tagContainer.append('<div class="'+undercaseTag+'" style="transition-delay:'+time+'s;" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
         });
         projectContainer.append(tagContainer);
       }
