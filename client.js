@@ -81,6 +81,8 @@ var projectID = []
     });
     
     function firebaseClick(project) {
+      $('.tagged').removeClass('tagged')
+      $('.homeContainer').removeClass('tagMode')
       
       var heroHeight = $('.hero').height()
       if(window.pageYOffset < heroHeight){
