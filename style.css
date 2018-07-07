@@ -40,14 +40,22 @@ a{
     position: relative;
   
 }
+.homeContainer .homeThumb:nth-child(odd){
+    transform-origin:bottom left  
+}
+.homeContainer .homeThumb:nth-child(even){
+   transform-origin:top right  
+}
 .homeContainer.tagMode .homeThumb:nth-child(odd){
-  transform:scale3D(.5,.5,1) rotate(-21deg)
+  transform:scale3D(.5,.5,1) rotate(-21deg);
 }
 .homeContainer.tagMode .homeThumb:nth-child(even){
-  transform:scale3D(.5,.5,1) rotate(23deg)
+  transform:scale3D(.5,.5,1) rotate(23deg);
+
 }
 .homeContainer.tagMode .homeThumb.tagged{
   transform:scale3D(1,1,1) rotate(0deg);
+  z-index:9
 /*   border-color:blue; */
 /*   order:0 !important */
 }
@@ -57,12 +65,14 @@ a{
   overflow:hidden;
   position:relative;
   height:20vw;
-  border: 2px solid transparent;
+  border: 3px solid rgba(0,0,0,0);
   border-radius:10px;
-  transition: transform .25s
+  transition: transform .25s;
+  background-color:rgba(255,255,255,1)
 }
 .homeThumb.hover{
   border-color:black;
+  z-index:10
 /*   background-color:rgba(255,0,0,0.1)
  */
 }
@@ -76,7 +86,7 @@ a{
   margin:auto
 }
 .homeThumb.hover video, .homeThumb.hover img{
-  opacity:.075;
+  opacity:.1;
   filter:grayscale(100%)
 }
 .tags{

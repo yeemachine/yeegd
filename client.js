@@ -81,6 +81,7 @@ var projectID = []
     });
     
     function firebaseClick(project) {
+      
       var heroHeight = $('.hero').height()
       if(window.pageYOffset < heroHeight){
            $('html, body').animate({
