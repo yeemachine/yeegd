@@ -100,7 +100,7 @@ a{
   padding:5px 8px 5px 8px;
   margin-right:5px;
   margin-top:5px;
-  background-color:rgba(0,0,0,0.4);
+  background-color:#666;
   color:white;
 /*   text-transform: capitalize; */
   border-radius:5px;
@@ -154,6 +154,7 @@ a{
     transition: width .25s;
     transition-delay: .25s;
 }
+
 .tagged .title:before{
   background-color:red;
 }
@@ -162,6 +163,8 @@ a{
     top: 2.5vw;
     font-size: 1vw;
    left: 0;
+}
+.homeThumb.hover{
 }
 .homeThumb.hover .title{
   opacity:1;
@@ -497,6 +500,7 @@ nav a.selected:before{
   .homeThumb video, .homeThumb img{
     position:relative
   }
+ 
   .title{
     opacity: 1;
     background-color: black;
