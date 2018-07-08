@@ -57,8 +57,8 @@ a{
   transform:scale3D(.3,.3,1) rotate(23deg);
 }
 .homeContainer.tagMode .homeThumb{
-  position:sticky;
-  top:2.5vw;
+/*   position:sticky;
+  top:2.5vw; */
   pointer-events:none;  
 }
 .homeContainer.tagMode .homeThumb img{
@@ -146,7 +146,7 @@ a{
     width: -moz-max-content;    
     width: -webkit-max-content;
     height: intrinsic;          
-    height: 2vw;    
+    height: 2.5vw;    
     height: -webkit-max-content;
     z-index: 2;
     position: absolute;
