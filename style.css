@@ -1,13 +1,15 @@
 
 
 body, html{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-   
+/*   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    */
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 body{
    background-color:rgba(0,0,0,0.05);
   margin:0;
   overflow-x:hidden;
+  font-size:18px;
 }
 body.lock{
   overflow:hidden;
@@ -47,11 +49,10 @@ a{
    transform-origin:top right  
 }
 .homeContainer.tagMode .homeThumb:nth-child(odd){
-  transform:scale3D(.5,.5,1) rotate(-21deg);
+  transform:scale3D(.3,.3,1) rotate(-21deg);
 }
 .homeContainer.tagMode .homeThumb:nth-child(even){
-  transform:scale3D(.5,.5,1) rotate(23deg);
-
+  transform:scale3D(.3,.3,1) rotate(23deg);
 }
 .homeContainer.tagMode .homeThumb.tagged{
   transform:scale3D(1,1,1) rotate(0deg);
@@ -90,7 +91,7 @@ a{
   filter:grayscale(100%)
 }
 .tags{
-  font-size:1vw;
+  font-size:1.2vw;
   display:inline-block;
   margin-left:5px;
   transition:.25s;
@@ -136,8 +137,9 @@ a{
     margin: auto;
     pointer-events:none;
     opacity:0;
+/*     font-family: 'IBM Plex Serif', serif; */
     font-weight:800;
-    font-size:2vw;
+    font-size:2.3vw;
     text-transform:uppercase;
     color:black
 }
@@ -161,7 +163,8 @@ a{
 }
 .title span{
     position: absolute;
-    top: 2.5vw;
+    top: 3vw;
+/*     font-family: 'IBM Plex Sans', sans-serif; */
     font-size: 1vw;
    left: 0;
 }
@@ -222,14 +225,14 @@ h3.logo.folded.about {
   grid-row-start: 3;
 }
 .secondaryContainer .text .para{
-    max-width:520px;
+    max-width:700px;
 }
 .secondaryContainer .text .para i{
 /*   opacity:0.3 */
 }
 .secondaryContainer h2{
   font-size:16px;
-  text-transform:uppercase;
+/*   text-transform:uppercase; */
   margin-top:0
 }
 .secondaryContainer h3{
@@ -358,7 +361,7 @@ nav a{
   width: -moz-max-content;    
   width: -webkit-max-content;
   position:relative;
-  font-size:16px;
+  font-size:1.2vw;
   margin-bottom:.5vw;
   opacity:0.3
 }
