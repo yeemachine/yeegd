@@ -244,18 +244,32 @@ var projectID = []
       })
     
     $('.tags div').bind('click', function(){
+      var thisTag = $(this)
       var tagID = $(this).attr("tags")
       var allTag = $('.'+tagID);
+      var tagSiblings = $(this).siblings(); 
+      var tagParent = $(this).closest('.homeThumb')
+      
+      console.log(tagSiblings.hasClass('tagged'))
 
       if($(this).hasClass('tagged') === true){
-        allTag.removeClass('tagged')
-          if ($('.tagged')[0]) {
-          } else {
-          $('.homeContainer').removeClass('tagMode')
-            console.log('notagmode')
-          }
+        
+        //// Finds out if Module has more than one tag ////
+        if(tagSiblings.hasClass('tagged') === true){
+          allTag.removeClass('tagged')
+          tagParent.addClass('tagged')
+        }else{
+          allTag.removeClass('tagged')
+        }
+        
+        //// Finds out if all tags have been removed ////
+        if ($('.tagged')[0]) {
+        } else {
+        //// Exits Tag Mode ////
+        $('.homeContainer').removeClass('tagMode')
+        }
       }else{
-        $('.tagged').removeClass('tagged')
+        // $('.tagged').removeClass('tagged')
         $('.homeContainer').addClass('tagMode')
         allTag.addClass('tagged')
       }
