@@ -63,6 +63,7 @@ a{
 .homeContainer.tagMode .homeThumb.tagged{
   transform:scale3D(1,1,1) rotate(0deg);
   z-index:30 !important;
+  top:0;
   position:relative;
 /*   border-color:blue; */
 /*   order:0 !important */
