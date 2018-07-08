@@ -29,18 +29,19 @@ a{
   width:100vw;
 }
 .firebaseLoad{
+  display:flex;
   position:relative
 }
 .homeContainer{
-  display: grid;
+ display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-gap: 3vw;
     height: auto;
-    width:75vw;
+    width: 82vw;
     padding: 2.5vw;
-  padding-left:21.5vw;
-    position: relative;
-  
+    /* padding-left: 2.5vw; */
+    position: sticky;
+    top: 2.5vw;
 }
 .homeContainer .homeThumb:nth-child(odd){
     transform-origin:bottom left  
@@ -50,13 +51,20 @@ a{
 }
 .homeContainer.tagMode .homeThumb:nth-child(odd){
   transform:scale3D(.3,.3,1) rotate(-21deg);
+  position:sticky;
+  top:2.5vw;
 }
 .homeContainer.tagMode .homeThumb:nth-child(even){
   transform:scale3D(.3,.3,1) rotate(23deg);
+  position:sticky;
+  top:2.5vw;
 }
+
 .homeContainer.tagMode .homeThumb.tagged{
   transform:scale3D(1,1,1) rotate(0deg);
-  z-index:9
+  z-index:30 !important;
+  top:0;
+  position:relative;
 /*   border-color:blue; */
 /*   order:0 !important */
 }
@@ -65,12 +73,15 @@ a{
   grid-column: span 1;
   overflow:hidden;
   position:relative;
+/*   position:sticky;
+  top:2.5vw; */
   height:20vw;
   border: 3px solid rgba(0,0,0,0);
   border-radius:10px;
   transition: transform .25s;
   background-color:rgba(255,255,255,1)
 }
+
 .homeThumb.hover{
   border-color:black;
   z-index:10
@@ -342,8 +353,9 @@ h3.logo.folded.about {
   cursor:pointer
 }
 nav{
-  width:auto;
-  position:absolute;
+  width:20vw;
+  position: -webkit-sticky;
+  position: sticky;
   top:2.5vw;
   left:2.5vw;
   z-index:9;

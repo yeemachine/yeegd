@@ -58,7 +58,7 @@ var projectID = []
       // console.log(projectName, projectHome, projectCss, projectTags)
       var titleContainer = $('<div class="title">'+projectName+'<span>'+projectYear+'</span></div>')
       
-      var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+'" tags="'+projectTagMappedString+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
+      var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+';z-index:'+projectOrder+'" tags="'+projectTagMappedString+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
       
       projectContainer.append(titleContainer);
       

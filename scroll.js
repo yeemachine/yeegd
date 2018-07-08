@@ -64,11 +64,11 @@ function scroll() {
     $(".hero").css("opacity","0.09");
 
   }
-  if (window.pageYOffset >= sticky) {
-    header.classList.add("sticky"); 
-  } else {
-    header.classList.remove("sticky");
-  }
+  // if (window.pageYOffset >= sticky) {
+  //   header.classList.add("sticky"); 
+  // } else {
+  //   header.classList.remove("sticky");
+  // }
   }
 
 };
