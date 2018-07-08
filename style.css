@@ -59,15 +59,20 @@ a{
 .homeContainer.tagMode .homeThumb{
   position:sticky;
   top:2.5vw;
-  filter:blur(50px);
   pointer-events:none;  
 }
+.homeContainer.tagMode .homeThumb img{
+    filter:blur(50px);
+}
+.homeContainer.tagMode .homeThumb.tagged img{
+    filter:blur(0);
+}
+
 .homeContainer.tagMode .homeThumb.tagged{
   transform:scale3D(1,1,1) rotate(0deg);
   z-index:30 !important;
   top:0;
   position:relative;
-  filter:blur(0);
   pointer-events:all;  
 /*   border-color:blue; */
 /*   order:0 !important */
