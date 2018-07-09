@@ -43,37 +43,36 @@ a{
     position: sticky;
     top: 2.5vw;
 }
+.tagMode .homeContainer:hover, .tagMode .hero:hover{
+  cursor: url(https://cdn.glitch.com/1f22d9d6-e66a-48a3-a949-61254002d860%2Fx-icon.svg?1531103433448), auto;
+}
 .homeContainer .homeThumb:nth-child(odd){
     transform-origin:bottom left  
 }
 .homeContainer .homeThumb:nth-child(even){
    transform-origin:top right  
 }
-.homeContainer.tagMode .homeThumb:nth-child(odd){
+.tagMode .homeContainer .homeThumb:nth-child(odd){
   transform:scale3D(.3,.3,1) rotate(-21deg);
 
 }
-.homeContainer.tagMode .homeThumb:nth-child(even){
+.tagMode .homeContainer .homeThumb:nth-child(even){
   transform:scale3D(.3,.3,1) rotate(23deg);
 }
-.homeContainer.tagMode .homeThumb{
+.tagMode .homeContainer .homeThumb{
 /*   position:sticky;
   top:2.5vw; */
-  pointer-events:none;  
-}
-.homeContainer.tagMode .homeThumb img{
-    filter:blur(50px);
-}
-.homeContainer.tagMode .homeThumb.tagged img{
-    filter:blur(0);
+  pointer-events:none; 
+  opacity:0.2
 }
 
-.homeContainer.tagMode .homeThumb.tagged{
+.tagMode .homeContainer .homeThumb.tagged{
   transform:scale3D(1,1,1) rotate(0deg);
   z-index:30 !important;
   top:0;
   position:relative;
   pointer-events:all;  
+  opacity:1
 /*   border-color:blue; */
 /*   order:0 !important */
 }
