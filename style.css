@@ -39,7 +39,7 @@ a{
     height: auto;
     width: 82vw;
     padding: 2.5vw;
-    /* padding-left: 2.5vw; */
+    padding-top: 0;
     position: sticky;
     top: 2.5vw;
 }
