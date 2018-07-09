@@ -82,7 +82,7 @@ var projectID = []
     
     function firebaseClick(project) {
       $('.tagged').removeClass('tagged')
-      $('.homeContainer').removeClass('tagMode')
+      $('body, .homeContainer').removeClass('tagMode')
       
       var heroHeight = $('.hero').height()
       if(window.pageYOffset < heroHeight){
@@ -266,11 +266,11 @@ var projectID = []
         if ($('.tagged')[0]) {
         } else {
         //// Exits Tag Mode ////
-        $('.homeContainer').removeClass('tagMode')
+        $('body, .homeContainer').removeClass('tagMode')
         }
       }else{
         // $('.tagged').removeClass('tagged')
-        $('.homeContainer').addClass('tagMode')
+        $('body, .homeContainer').addClass('tagMode')
         allTag.addClass('tagged')
       }
       })
@@ -280,7 +280,7 @@ var projectID = []
         if($('.tagged')[0]) {
           // console.log('removealltags')
           $('.tagged').removeClass('tagged')
-          $('.homeContainer').removeClass('tagMode')
+          $('body, .homeContainer').removeClass('tagMode')
         }
     }        
     });
