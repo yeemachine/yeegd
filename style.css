@@ -110,7 +110,7 @@ a{
   filter:grayscale(100%)
 }
 .tags{
-  font-size:1.2vw;
+  font-size:18px;
   display:inline-block;
   margin-left:5px;
   transition:.25s;
@@ -361,38 +361,63 @@ h3.logo.folded.about {
   cursor:pointer
 }
 nav{
-  width:20vw;
-  position: -webkit-sticky;
-  position: sticky;
-  top:2.5vw;
-  left:2.5vw;
-  z-index:9;
-  display:flex;
-  flex-direction:column;
-  height: calc(100vh - 5vw);
-  overflow-y: hidden;
+      width: 20vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2.5vw;
+    left: 2.5vw;
+    z-index: 9;
+    display: block;
+    /* flex-direction: column; */
+    height: max-content;
+    /* overflow-y: hidden; */
 }
 nav.sticky{
     position:fixed;
 /*   top:2.5vw; */
+}
+nav section{
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  margin-left:10px;
+}
+nav .line{
+    position: absolute;
+    width: 2px;
+    background-color: black;
+    height: 0;
+    top: 0.25vw;
+    left: -10px;
+}
+nav section:before{
+    content: "";
+    height: calc(100% - 0.5vw);
+    width: 2px;
+    position: absolute;
+    top: .25vw;
+    left: -10px;
+    background-color: rgba(0,0,0,0.2);
+    transition: width .25s;
 }
 nav a{
   width: intrinsic;          
   width: -moz-max-content;    
   width: -webkit-max-content;
   position:relative;
-  font-size:1.2vw;
-  margin-bottom:.5vw;
+  font-size:15px;
+  margin-top:.25vw;
+  margin-bottom:.25vw;
   opacity:0.3
 }
 nav a:before{
     content: "";
-    height: 4px;
+    height: 100%;
     width: 0;
     position: absolute;
-    bottom: 7px;
+    top: 0;
     left: -10px;
-    background-color: black;
+    background-color: red;
     transition: width .25s;
 }
 .home{
@@ -408,10 +433,11 @@ nav a:before{
   text-transform:uppercase;
 }
 .about a, .linkedin a{
-  opacity:1
+  opacity:1;
+  font-size:18px;
 }
 nav a:hover, nav a.hover{
-  color:red
+  color:black
 }
 
 .linkedin{
@@ -423,12 +449,14 @@ nav a:hover, nav a.hover{
 .about:hover{
   cursor: pointer
 }
-
+nav a.selected{
+  color:red;
+}
 nav a.selected, nav a.hover{
-    opacity:1
+    opacity:1  
 }
 nav a.selected:before{
-  width:4px
+  width:2px
 }
 .ham{
   display:none
