@@ -45,6 +45,10 @@ function scroll() {
     }
 
   }else{
+    var scrollRatio = (window.pageYOffset-$(window).height()*0.7)/($(document).height()-$(window).height()*1.7);
+    console.log(scrollRatio)
+      $("nav .line").css("height","calc("+scrollRatio*100+"% - 0.5vw)");
+    
     if((window.pageYOffset/logoScroll)< 1 ){
     var ratio = window.pageYOffset/logoScroll
     var color = ratio*255

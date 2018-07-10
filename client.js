@@ -36,6 +36,7 @@ var projectID = []
     var firebaseContainer = $('<section class="firebaseLoad"></section>')
     var secondaryContainer = $('<section class="secondaryLoad"></section>')
     var nav = $('<nav><div class="home">Projects</div></nav>');
+    var navList = $('<section><div class="line"></div></section>')
     var homeContainer = $('<container class="homeContainer"></container>')
     
     var refData = snap.val();
@@ -77,7 +78,7 @@ var projectID = []
       
       
 
-      nav.append("<a href='#"+item+"' class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</a>")
+      navList.append("<a href='#"+item+"' class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</a>")
     });
     
     function firebaseClick(project) {
@@ -193,6 +194,7 @@ var projectID = []
       $(".hide").removeClass("hide")
       $('.ham .material-icons').html('&#xE5D2;')
     }
+    nav.append(navList);
     
     nav.append("<div class='linkedin'><a href='https://www.linkedin.com/in/yeemachine/' target='blank'>LinkedIn</a></div><div class='about'><a>About</a></div>")
     firebaseContainer.append(nav, homeContainer, secondaryContainer)  
