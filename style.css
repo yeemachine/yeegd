@@ -43,8 +43,11 @@ a{
     position: sticky;
     top: 2.5vw;
 }
-.tagMode .homeContainer:hover, .tagMode .hero:hover{
+ .tagMode .hero:hover, .tagMode .firebaseLoad{
   cursor: url(https://cdn.glitch.com/1f22d9d6-e66a-48a3-a949-61254002d860%2Fx-icon.svg?1531103433448), auto;
+}
+.tagMode nav:hover{
+  cursor: default
 }
 .homeContainer .homeThumb:nth-child(odd){
     transform-origin:bottom left  
