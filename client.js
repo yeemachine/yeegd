@@ -275,7 +275,7 @@ var projectID = []
       }
       })
     
-    $(document).click(function(event) { 
+$(document).bind('touchstart click', function(){
     if(!$(event.target).closest('.homeThumb').length) {
         if($('.tagged')[0]) {
           // console.log('removealltags')
