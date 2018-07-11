@@ -22,15 +22,16 @@ var projectRef = database.ref('spreadsheets3');
 var projectID = []
 
   projectRef.once('value').then( function(snap) {
-    var start = 0;
-    var speed = 10;
-    setInterval(function () {
-       start += 0.0125;
-        // console.log('timeout')
+//     var start = 0;
+//     var speed = 10;
+//     setInterval(function () {
+//        start += 0.0125;
+//         // console.log('timeout')
       
-        scroll();
-        scrolltwo();
-       }, speed);
+//         scroll();
+//         scrolltwo();
+//        }, speed);
+    
     
     
     var firebaseContainer = $('<section class="firebaseLoad"></section>')
@@ -55,13 +56,13 @@ var projectID = []
       var projectTags = projectData[item]['tags']
       var projectTagMapped = projectTags.map(str => str.replace(/\s/g, '').toLowerCase());
       var projectTagMappedString = projectTagMapped.join(" ");
+      var title_Tag = $('<div></div>')
       
       // console.log(projectName, projectHome, projectCss, projectTags)
-      var titleContainer = $('<div class="title">'+projectName+'<span>'+projectYear+'</span></div>')
+      var titleContainer = $('<section class="title">'+projectName+'<span>'+projectYear+'</span></section>')
       
       var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+';z-index:'+projectOrder+'" tags="'+projectTagMappedString+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
       
-      projectContainer.append(titleContainer);
       
       var tagContainer = $('<div class="tags"></div>')
       if(projectTags !== undefined){
@@ -70,10 +71,9 @@ var projectID = []
           var time = (.05*i);
           tagContainer.append('<div class="'+undercaseTag+'" style="transition-delay:'+time+'s;" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
         });
+        tagContainer.prepend(titleContainer);
         projectContainer.append(tagContainer);
       }
-      
-      
       homeContainer.append(projectContainer);
       
       
@@ -132,9 +132,7 @@ var projectID = []
                       }
                   }())
       
-      // $('.secondaryLoad').scroll(function() {
-      //     scrolltwo();
-      // });
+
       
       $('.right').addClass('hide');
       $('body').addClass('lock');
@@ -321,10 +319,16 @@ var projectID = []
         $('.'+$(this).attr("project")).removeClass('hover');
       }
     })
-       
-//     window.onscroll = function() {
       
-//     };
+    
+    
+    window.onscroll = function() {
+      scroll();
+    };
+    
+    $('.secondaryLoad').scroll(function() {
+      scrolltwo();
+    });
 
 
   
