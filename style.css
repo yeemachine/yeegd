@@ -552,6 +552,9 @@ nav a.selected:before{
     height:auto;
     border: 0;
   }
+  .homeThumb a{
+    display:block;
+  }
   .homeThumb video, .homeThumb img{
     position:relative;
     margin-bottom: -5px;
