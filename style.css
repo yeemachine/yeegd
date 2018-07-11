@@ -90,7 +90,7 @@ a{
   border: 3px solid rgba(0,0,0,0);
   border-radius:10px;
   transition: transform .25s;
-  background-color:rgba(255,255,255,1)
+  background-color:#e0e0e0;
 }
 
 .homeThumb.hover{
@@ -100,7 +100,7 @@ a{
  */
 }
 .homeThumb.hover.tagged{
-  border-color:red;
+  border-color:crimson;
 }
 .homeThumb video, .homeThumb img{
   width:100%;
@@ -137,7 +137,7 @@ a{
   opacity:1
 }
 .tags div.tagged{
-  background-color:red !important;
+  background-color:crimson !important;
   transform:scale3d(1,1,1);
 }
 .tags div:hover{
@@ -166,7 +166,7 @@ a{
     color:black
 }
 .tagged .title{
-  color:red;
+  color:crimson;
 }
 .title:before{
     content: "";
@@ -181,7 +181,7 @@ a{
 }
 
 .tagged .title:before{
-  background-color:red;
+  background-color:crimson;
 }
 .title span{
     position: absolute;
@@ -420,7 +420,7 @@ nav a:before{
     position: absolute;
     top: 0;
     left: -10px;
-    background-color: red;
+    background-color: crimson;
     transition: width .25s;
 }
 .home{
@@ -453,7 +453,7 @@ nav a:hover, nav a.hover{
   cursor: pointer
 }
 nav a.selected{
-  color:red;
+  color:crimson;
 }
 nav a.selected, nav a.hover{
     opacity:1  
@@ -503,7 +503,7 @@ nav a.selected:before{
     position: fixed;
     top: 5vw;
     right: 5vw;
-    z-index: 9;
+    z-index: 999;
     height: 40px;
     width: 40px;
     display: flex;
@@ -572,12 +572,12 @@ nav a.selected:before{
     left: auto;
     border-radius: 5px;
     position: relative;
-    margin: 5px 5px 0 0;
+    margin: 10px 10px 0px 0px;
   }
   .title span{
     position: relative;
     font-size: 16px;
-    opacity: 0.5;
+    opacity: 0.6;
     margin-left: 10px;
     top: auto;
   }
@@ -619,16 +619,18 @@ nav a.selected:before{
     font-size:18px;
   }
   .tags{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     display:flex;
     flex-wrap:wrap;
+    margin:0 10px 10px 10px
   }
   .tags div{
     opacity:1;
     transform:scale3d(1,1,1);
     font-size:16px;
+    margin:10px 10px 0px 0px
   }
   .tags div:hover{
     background-color:#999;
