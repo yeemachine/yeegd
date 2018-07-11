@@ -565,9 +565,11 @@ nav a.selected:before{
     padding: 5px 8px 5px 8px;
     font-size: 16px;
     color: white;
-    bottom: 5px;
-    left: 5px;
+    bottom: auto;
+    left: auto;
     border-radius: 5px;
+    position: relative;
+    margin: 5px 5px 0 0;
   }
   .title span{
     position: relative;
@@ -617,6 +619,8 @@ nav a.selected:before{
     position: absolute;
     top: 0;
     left: 0;
+    display:flex;
+    flex-wrap:wrap;
   }
   .tags div{
     opacity:1;

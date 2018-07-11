@@ -56,13 +56,13 @@ var projectID = []
       var projectTags = projectData[item]['tags']
       var projectTagMapped = projectTags.map(str => str.replace(/\s/g, '').toLowerCase());
       var projectTagMappedString = projectTagMapped.join(" ");
+      var title_Tag = $('<div></div>')
       
       // console.log(projectName, projectHome, projectCss, projectTags)
-      var titleContainer = $('<div class="title">'+projectName+'<span>'+projectYear+'</span></div>')
+      var titleContainer = $('<section class="title">'+projectName+'<span>'+projectYear+'</span></section>')
       
       var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+';z-index:'+projectOrder+'" tags="'+projectTagMappedString+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
       
-      projectContainer.append(titleContainer);
       
       var tagContainer = $('<div class="tags"></div>')
       if(projectTags !== undefined){
@@ -71,10 +71,9 @@ var projectID = []
           var time = (.05*i);
           tagContainer.append('<div class="'+undercaseTag+'" style="transition-delay:'+time+'s;" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
         });
+        tagContainer.prepend(titleContainer);
         projectContainer.append(tagContainer);
       }
-      
-      
       homeContainer.append(projectContainer);
       
       
