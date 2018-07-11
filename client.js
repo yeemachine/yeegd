@@ -22,15 +22,16 @@ var projectRef = database.ref('spreadsheets3');
 var projectID = []
 
   projectRef.once('value').then( function(snap) {
-    var start = 0;
-    var speed = 10;
-    setInterval(function () {
-       start += 0.0125;
-        // console.log('timeout')
+//     var start = 0;
+//     var speed = 10;
+//     setInterval(function () {
+//        start += 0.0125;
+//         // console.log('timeout')
       
-        scroll();
-        scrolltwo();
-       }, speed);
+//         scroll();
+//         scrolltwo();
+//        }, speed);
+    
     
     
     var firebaseContainer = $('<section class="firebaseLoad"></section>')
@@ -132,9 +133,7 @@ var projectID = []
                       }
                   }())
       
-      // $('.secondaryLoad').scroll(function() {
-      //     scrolltwo();
-      // });
+
       
       $('.right').addClass('hide');
       $('body').addClass('lock');
@@ -321,10 +320,16 @@ var projectID = []
         $('.'+$(this).attr("project")).removeClass('hover');
       }
     })
-       
-//     window.onscroll = function() {
       
-//     };
+    
+    
+    window.onscroll = function() {
+      scroll();
+    };
+    
+    $('.secondaryLoad').scroll(function() {
+      scrolltwo();
+    });
 
 
   

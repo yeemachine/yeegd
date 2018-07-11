@@ -553,7 +553,8 @@ nav a.selected:before{
     border: 0;
   }
   .homeThumb video, .homeThumb img{
-    position:relative
+    position:relative;
+    margin-bottom: -5px;
   }
  
   .title{
@@ -561,13 +562,19 @@ nav a.selected:before{
     background-color: black;
     top: auto;
     right: auto;
-    padding: 2.5vw;
-    font-size:16px;
-    color:white;
-    bottom:3px;
+    padding: 5px 8px 5px 8px;
+    font-size: 16px;
+    color: white;
+    bottom: 5px;
+    left: 5px;
+    border-radius: 5px;
   }
   .title span{
-    display:none;
+    position: relative;
+    font-size: 16px;
+    opacity: 0.5;
+    margin-left: 10px;
+    top: auto;
   }
   .title:before{
     width:0%
@@ -605,6 +612,19 @@ nav a.selected:before{
   nav div{
     margin-bottom:5px;
     font-size:18px;
+  }
+  .tags{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .tags div{
+    opacity:1;
+    transform:scale3d(1,1,1);
+    font-size:16px;
+  }
+  .tags div:hover{
+    background-color:#999;
   }
 
   
