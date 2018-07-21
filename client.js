@@ -327,7 +327,7 @@ $(document).bind('click', function(){
     };
     
     $('.secondaryLoad').scroll(function() {
-      scrolltwo();
+      // scrolltwo();
     });
 
 
