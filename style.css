@@ -6,7 +6,7 @@ body, html{
   font-family: 'IBM Plex Sans', sans-serif;
 }
 body{
-   background-color:#EBEBEB;
+   background-color:#f7f7f7;
   margin:0;
   overflow-x:hidden;
   font-size:18px;
@@ -90,7 +90,7 @@ a{
   border: 3px solid rgba(0,0,0,0);
   border-radius:10px;
   transition: transform .25s;
-  background-color:#EBEBEB;
+  background-color:#f7f7f7;
 }
 
 .homeThumb.hover{
