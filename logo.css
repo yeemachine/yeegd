@@ -188,7 +188,9 @@ h3.logo.about{
     left: 0.26em;
     position: relative;
     margin-top: -.02em !important;
+  opacity:0;
 }
+
 
 
 @media screen and (max-width: 800px) {
