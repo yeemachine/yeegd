@@ -239,7 +239,7 @@ h3.logo.folded.about {
     grid-column-start: 1;
     grid-row-start: 1;
     grid-column-end: -1;
-  margin-bottom:-2.5vw
+/*   margin-bottom:-2.5vw */
 }
 .secondaryContainer .text{
   grid-column-start:1;
@@ -330,7 +330,7 @@ h3.logo.folded.about {
     position: absolute;
     transition: .25s;
     cursor:pointer;
-    opacity:0.2;
+    opacity:0.3;
 }
 .button:hover{
   opacity:1;
@@ -349,6 +349,7 @@ h3.logo.folded.about {
     justify-content: center;
     color: white;
     background: black;
+  border-radius:5px;
 }
 .button-wrapper:hover{
   cursor:pointer;
@@ -511,6 +512,7 @@ nav a.selected:before{
     justify-content: center;
     color: white;
     background: black;
+    border-radius:5px;
   }
   .ham:hover{
     cursor:pointer;
@@ -558,6 +560,7 @@ nav a.selected:before{
   .homeThumb video, .homeThumb img{
     position:relative;
     margin-bottom: -5px;
+    border-radius: 10px;
   }
  
   .title{
@@ -624,7 +627,7 @@ nav a.selected:before{
     left: 0;
     display:flex;
     flex-wrap:wrap;
-    margin:0 10px 10px 10px
+    margin:0
   }
   .tags div{
     opacity:1;
