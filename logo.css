@@ -189,6 +189,7 @@ h3.logo.about{
     position: relative;
     margin-top: -.02em !important;
   opacity:0;
+  display: none;
 }
 
 
@@ -197,7 +198,7 @@ h3.logo.about{
   h3.logo.about{
   font-size:5vw;
     margin-bottom:4vw;
-    margin-top:calc(40px + 5vw);
+    margin-top:calc(-2vw + 20px);
   }
   .right{
     font-size:12vw;
