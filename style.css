@@ -277,12 +277,16 @@ h3.logo.folded.about {
   background-color:black;
   color:white
 }
+.secondaryContainer .embed-container{
+  border-radius:5px;
+}
 .secondaryContainer .embed-container, .secondaryContainer .block{
   width:100%;
   grid-column: span 2
 }
 .secondaryContainer img{
   width:100%;
+  border-radius:5px;
 }
 .secondaryContainer svg{
   max-height:20vh;
