@@ -1,0 +1,48 @@
+<section class="hero">
+  <h3 class="logo folded right processed" data-max_flow="3" data-max_lines="3">
+    <div class="line"><p class="yeeshadow" style="margin-top:-0.8em">&nbsp</p><p class="red"><span>Desi</span>g<span>n</span></p></div>
+    <div class="line"><p class="yeeshadow" style="margin-top:-0.8em"><span>Desi</span>g<span>n</span></p><p class="red"><span>Develop</span></p></div>
+    <div class="line"><p class="yeeshadow" style="margin-top:-0.8em"><span>Develop</span></p><p class="red">R<span>ichar</span>d</div>
+    <div class="line"><p class="yeeshadow" style="margin-top:-0.8em">R<span>ichar</span>d</p><p class="red">Y<span>ee</span></p></div>
+    <div class="line"><p class="yeeshadow" style="margin-top:-0.8em">Y<span>ee</span></p></div>
+  </h3>
+</section>
+
+<div class="ham">
+  <i class="material-icons">&#xE5D2;</i>
+</div>
+
+<section class="projects">
+  <section class="firebaseLoad">
+    <nav>
+      <div class="home">Projects</div>
+      <section>
+        <div class="line"></div>
+        {{#each firebase.projects}}
+          <a href="#{{@key}}" class="projectClick {{@key}}" project="{{@key}}" style="order:{{this.order}}">{{this.displayName}}</a>
+        {{/each}}
+      </section>
+      <div class="linkedin">LinkedIn</div>
+      <div class="about">About</div>
+    </nav>
+    <container class="homeContainer">
+      {{#each firebase.projects}}
+      <div class="homeThumb projectClick {{@key}} {{#each this.tags}} {{replace this}}{{/each}}"
+           project="{{@key}}"
+           style="order:{{this.order}};z-index:{{this.order}}"
+           >
+        <a href="#{{@key}}" project="{{@key}}">
+          <img src="{{this.home.url}}" style="{{this.home.css}}"/>
+        </a>
+        <div class="tags">
+          <section class="title">{{this.displayName}}<span>{{this.year}}</span></section>
+          {{#each this.tags}}
+            <div class="{{replace this}}" style="transition-delay:{{delay @index}}s" tags="{{replace this}}">{{this}}</div>
+          {{/each}}
+        </div>
+      </div>
+      {{/each}} 
+    </container>
+    <section class="secondaryLoad"></section>
+  </section>
+</section>
