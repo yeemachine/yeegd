@@ -5,7 +5,34 @@
 // add other scripts at the bottom of index.html
 
 $(function() {
-    var projectID = []
+  
+  
+  var config = {
+    apiKey: "AIzaSyCIi4whBgkNKOoediWDR2oxVePerWpMpHg",
+    authproject: "yeemachine-fc409.firebaseapp.com",
+    databaseURL: "https://yeemachine-fc409.firebaseio.com",
+    projectId: "yeemachine-fc409",
+    storageBucket: "yeemachine-fc409.appspot.com",
+    messagingSenderId: "563165122469"
+  };
+  
+firebase.initializeApp(config);
+var database = firebase.database();
+var projectRef = database.ref('spreadsheets3');
+var projectID = []
+
+  projectRef.once('value').then( function(snap) {
+//     var start = 0;
+//     var speed = 10;
+//     setInterval(function () {
+//        start += 0.0125;
+//         // console.log('timeout')
+      
+//         scroll();
+//         scrolltwo();
+//        }, speed);
+    
+    
     
     var firebaseContainer = $('<section class="firebaseLoad"></section>')
     var secondaryContainer = $('<section class="secondaryLoad"></section>')
@@ -13,45 +40,46 @@ $(function() {
     var navList = $('<section><div class="line"></div></section>')
     var homeContainer = $('<container class="homeContainer"></container>')
     
-    var projectData = Firebase['projects']
+    var refData = snap.val();
+    var projectData = refData['projects']
     projectID = Object.keys(projectData)
-    console.log(projectData);
+    // console.log(projectID);
     
     var css = ""
 
-//     projectID.forEach(function(item){
-//       var projectName = projectData[item].displayName
-//       var projectHome = projectData[item]['home'].url
-//       var projectCss = projectData[item]['home'].css
-//       var projectOrder = projectData[item].order
-//       var projectYear = projectData[item].year
-//       var projectTags = projectData[item]['tags']
-//       var projectTagMapped = projectTags.map(str => str.replace(/\s/g, '').toLowerCase());
-//       var projectTagMappedString = projectTagMapped.join(" ");
-//       var title_Tag = $('<div></div>')
+    projectID.forEach(function(item){
+      var projectName = projectData[item].displayName
+      var projectHome = projectData[item]['home'].url
+      var projectCss = projectData[item]['home'].css
+      var projectOrder = projectData[item].order
+      var projectYear = projectData[item].year
+      var projectTags = projectData[item]['tags']
+      var projectTagMapped = projectTags.map(str => str.replace(/\s/g, '').toLowerCase());
+      var projectTagMappedString = projectTagMapped.join(" ");
+      var title_Tag = $('<div></div>')
       
-//       // console.log(projectName, projectHome, projectCss, projectTags)
-//       var titleContainer = $('<section class="title">'+projectName+'<span>'+projectYear+'</span></section>')
+      // console.log(projectName, projectHome, projectCss, projectTags)
+      var titleContainer = $('<section class="title">'+projectName+'<span>'+projectYear+'</span></section>')
       
-//       var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+';z-index:'+projectOrder+'" tags="'+''+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
+      var projectContainer = $('<div class="homeThumb projectClick '+item+' '+projectTagMappedString+'" project="'+item+'" style="order:'+projectOrder+';z-index:'+projectOrder+'" tags="'+projectTagMappedString+'"><a href="#'+item+'" project="'+item+'"><img src="'+projectHome+'" style="'+projectCss+'"/></a></div>')
       
       
-//       var tagContainer = $('<div class="tags"></div>')
-//       if(projectTags !== undefined){
-//         projectTags.forEach(function(item, i){
-//           var undercaseTag = item.replace(/\s/g, '').toLowerCase()
-//           var time = (.05*i);
-//           tagContainer.append('<div class="'+undercaseTag+'" style="transition-delay:'+time+'s;" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
-//         });
-//         tagContainer.prepend(titleContainer);
-//         projectContainer.append(tagContainer);
-//       }
-//       homeContainer.append(projectContainer);
+      var tagContainer = $('<div class="tags"></div>')
+      if(projectTags !== undefined){
+        projectTags.forEach(function(item, i){
+          var undercaseTag = item.replace(/\s/g, '').toLowerCase()
+          var time = (.05*i);
+          tagContainer.append('<div class="'+undercaseTag+'" style="transition-delay:'+time+'s;" tags="'+item.replace(/\s/g, '').toLowerCase()+'">'+item+'</div>')  
+        });
+        tagContainer.prepend(titleContainer);
+        projectContainer.append(tagContainer);
+      }
+      homeContainer.append(projectContainer);
+      
       
 
-//       navList.append("<a href='#"+item+"' class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</a>")
-      
-//     });
+      navList.append("<a href='#"+item+"' class='projectClick "+item+"' project='"+item+"' style='order:"+projectOrder+"'>"+projectName+"</a>")
+    });
     
     function firebaseClick(project) {
       $('.tagged').removeClass('tagged')
@@ -131,7 +159,11 @@ $(function() {
           secondaryContainer.append('<div class="block '+projectOrientation+'"><img class="" src="'+projectPhoto+'"/><p class="caption"><i>'+projectCaption+'</i></p></div>')
         }
         if(projectVideo !== ""){
-          secondaryContainer.append("<div class='videoContainer block "+projectOrientation+"'><div class='embed-container' style='"+projectAspect+"'><iframe src='"+projectVideo+"' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><p class='caption'>"+projectCaption+"</p></div>")
+          if(projectVideo.includes('vimeo')){
+            secondaryContainer.append("<div class='videoContainer block "+projectOrientation+"'><div class='embed-container' style='"+projectAspect+"'><iframe src='"+projectVideo+"' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div><p class='caption'>"+projectCaption+"</p></div>")
+          }else if(projectVideo.includes('mp4')){
+            secondaryContainer.append('<video alt="Gesture controls" autoplay="" loop="" muted="" playsinline="" class="videoContainer block"><source src="'+projectVideo+'" type="video/mp4"></video>')
+          }
         }
         }
       
@@ -164,10 +196,10 @@ $(function() {
       $(".hide").removeClass("hide")
       $('.ham .material-icons').html('&#xE5D2;')
     }
-//     nav.append(navList);
+    nav.append(navList);
     
-//     nav.append("<div class='linkedin'><a href='https://www.linkedin.com/in/yeemachine/' target='blank'>LinkedIn</a></div><div class='about'><a>About</a></div>")
-//     firebaseContainer.append(nav, homeContainer, secondaryContainer)  
+    nav.append("<div class='linkedin'><a href='https://www.linkedin.com/in/yeemachine/' target='blank'>LinkedIn</a></div><div class='about'><a>About</a></div>")
+    firebaseContainer.append(nav, homeContainer, secondaryContainer)  
     
     
         function aboutClick() {
@@ -208,7 +240,7 @@ $(function() {
           });
         }
     
-     $('.projects').append(firebaseContainer)
+     $('.projects').html(firebaseContainer)
     
    
      $('.projectClick a, a.projectClick').bind('click', function(){
@@ -304,5 +336,6 @@ $(document).bind('click', function(){
 
 
   
+  }); 
   
 })
