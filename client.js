@@ -219,7 +219,7 @@ var projectID = []
           var aboutText = "I'm a Visual Designer at Code and Theory in NYC and a freelance creative developer. I like pushing the capabilities of the web to its breaking limits. Currently hooked on bringing interactive machine learning fun to the web."
           var skillList = "HTML / CSS / JS / TS / Svelte / React / Vue / PIXI / Three.js / WebGL / Web Audio / Node"
           var skillList2 = "Adobe Suite / Blender / RoboFont / Sketch-Figma / Principle"
-          var experience = "SOTD: AWWWARDS, FWA, CSS Design Awards <br> Siteinspire / Google Experiments / Fonts in Uses"
+          var experience = "SOTD: AWWWARDS, FWA, CSS Design Awards <br>Webbys / Siteinspire / Google Experiments / Fonts in Uses"
           var bio2 = $('<h3 class="logo folded about"><div class="line solid"><p class="yeehover" style="margin-top:-0.8em">&nbsp</p><p>'+aboutTitle+'</p></div><div class="line shadow"><p class="yeehover" style="margin-top:-0.8em">'+aboutTitle+'</p></div></h3><div class="text"><div class="para">'+aboutText+'<br><br><br><a class="external" href="mailto:rich@yeemachine.com" target="blank">Contact Me</a><br><br><br><br><b>Featured in</b><br><br>'+experience+'<br><br><br><b>Design Software</b><br><br>'+skillList2+'<br><br><br><b>Web Skills</b><br><br>'+skillList+'</div></div>')
           secondaryContainer.append(bio2)
           $('.secondaryLoad').html(secondaryContainer);
