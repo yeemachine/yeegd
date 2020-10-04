@@ -216,7 +216,7 @@ var projectID = []
           $('.right').addClass('hide');
           var secondaryContainer = $('<container aria-hidden="false" class="secondaryContainer"><i class="material-icons button">&#xE5CD;</i></container>')
           var aboutTitle = "Hello!"
-          var aboutText = "I'm a Visual Designer at Code and Theory in NYC and a freelance creative developer. I like pushing the capabilities of the web to its breaking limits. Currnetly hooked on bringing interactive machine learning fun to the web."
+          var aboutText = "I'm a Visual Designer at Code and Theory in NYC and a freelance creative developer. I like pushing the capabilities of the web to its breaking limits. Currently hooked on bringing interactive machine learning fun to the web."
           var skillList = "HTML / CSS / JS / TS / Svelte / React / Vue / PIXI / Three.js / WebGL / Web Audio / Node"
           var skillList2 = "Adobe Suite / Blender / RoboFont / Sketch-Figma / Principle"
           var experience = "SOTD: AWWWARDS, FWA, CSS Design Awards <br> Siteinspire / Google Experiments / Fonts in Uses"
