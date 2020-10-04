@@ -215,12 +215,12 @@ var projectID = []
           $('.secondaryLoad').addClass('show');
           $('.right').addClass('hide');
           var secondaryContainer = $('<container aria-hidden="false" class="secondaryContainer"><i class="material-icons button">&#xE5CD;</i></container>')
-          var aboutTitle = "From CA to NY"
-          var aboutText = "I am an aspring graphic designer and developer interested in the potential of web technologies. I am a new graduate of Cooper Union in New York City. In addition to using design software for much of my graphic work, I use code to prototype my more experimental content in WebGL and WebVR."
-          var skillList = "HTML / CSS / JS / PHP / JQuery / Three.js / Aframe.js / Web VR-AR / WebGL / Web Audio API / Vue.js / Node.js / Lottie.js / Firebase"
-          var skillList2 = "Photoshop / Illustrator / InDesign / After Effects / Final Cut Pro / Motion / Blender / RoboFont / Bodymovin (After Effects) / Sketch / Principle"
-          var experience = "Code and Theory<br><i>New York, NY – May 2018 to Present</i><br><br>The Herb Lubalin Study Center of Design and Typography<br><i>New York, NY – Feb 2018 to Present</i><br><br>Trilon Graphics / Digital Printers<br><i>New York, NY – Feb 2018 to Present</i><br><br>SFMOMA.domains<br><i>New York, NY – Jan 2018 to Mar 2018</i><br><br>Typographics<br><i>New York, NY – Sep 2017 to Present</i><br><br>The Cooper Union Intra-Disciplinary Seminar<br><i>New York, NY – Sep 2017 to Present</i><br><br>Piscatello Design Centre<br><i>New York, NY – May 2017 to Aug 2017</i><br><br>Facebook Global Hackathon 2016<br><i>Menlo Park, CA – Nov 2016</i>"
-          var bio2 = $('<h3 class="logo folded about"><div class="line solid"><p class="yeehover" style="margin-top:-0.8em">&nbsp</p><p>'+aboutTitle+'</p></div><div class="line shadow"><p class="yeehover" style="margin-top:-0.8em">'+aboutTitle+'</p></div></h3><div class="text"><div class="para">'+aboutText+'<br><br><br><a class="external" href="mailto:rich@yeemachine.com" target="blank">Contact Me</a><br><br><br><br><b>Experience</b><br><br>'+experience+'<br><br><br><b>Design Software</b><br><br>'+skillList2+'<br><br><br><b>Web Skills</b><br><br>'+skillList+'</div></div>')
+          var aboutTitle = "Hello!"
+          var aboutText = "I'm a Visual Designer at Code and Theory in NYC and a freelance creative developer. I like pushing the capabilities of the web to its breaking limits. Currnetly hooked on bringing interactive machine learning fun to the web."
+          var skillList = "HTML / CSS / JS / TS / Svelte / React / Vue / PIXI / Three.js / WebGL / Web Audio / Node"
+          var skillList2 = "Adobe Suite / Blender / RoboFont / Sketch-Figma / Principle"
+          var experience = "SOTD: AWWWARDS, FWA, CSS Design Awards <br> Siteinspire / Google Experiments / Fonts in Uses"
+          var bio2 = $('<h3 class="logo folded about"><div class="line solid"><p class="yeehover" style="margin-top:-0.8em">&nbsp</p><p>'+aboutTitle+'</p></div><div class="line shadow"><p class="yeehover" style="margin-top:-0.8em">'+aboutTitle+'</p></div></h3><div class="text"><div class="para">'+aboutText+'<br><br><br><a class="external" href="mailto:rich@yeemachine.com" target="blank">Contact Me</a><br><br><br><br><b>Featured in</b><br><br>'+experience+'<br><br><br><b>Design Software</b><br><br>'+skillList2+'<br><br><br><b>Web Skills</b><br><br>'+skillList+'</div></div>')
           secondaryContainer.append(bio2)
           $('.secondaryLoad').html(secondaryContainer);
           
