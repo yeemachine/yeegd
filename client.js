@@ -252,7 +252,8 @@ $(function() {
             );
           } else if (projectVideo.includes("mp4")) {
             secondaryContainer.append(
-              '<video alt="Gesture controls" autoplay="" loop="" muted="" playsinline="" class="videoContainer block"><source src="' +
+              '<video alt="Gesture controls" autoplay="" loop="" muted="" class="block videoContainer '+
+                projectOrientation +'" playsinline=""><source src="' +
                 projectVideo +
                 '" type="video/mp4"></video>'
             );
