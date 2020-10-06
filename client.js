@@ -66,30 +66,58 @@ $(function() {
           projectYear +
           "</span></section>"
       );
+      
+      let projectContainer
+      
+      if(projectHome.includes('mp4')){
+        projectContainer = $(
+          '<div class="homeThumb projectClick ' +
+            item +
+            " " +
+            projectTagMappedString +
+            '" project="' +
+            item +
+            '" style="order:' +
+            projectOrder +
+            ";z-index:" +
+            projectOrder +
+            '" tags="' +
+            projectTagMappedString +
+            '"><a href="#' +
+            item +
+            '" project="' +
+            item +
+            '"><video alt="Gesture controls" autoplay="" loop="" muted="" playsinline=""><source src="' +
+                projectHome +
+                '" type="video/mp4"></video></a></div>'
+        );
+      }else{
+        projectContainer = $(
+          '<div class="homeThumb projectClick ' +
+            item +
+            " " +
+            projectTagMappedString +
+            '" project="' +
+            item +
+            '" style="order:' +
+            projectOrder +
+            ";z-index:" +
+            projectOrder +
+            '" tags="' +
+            projectTagMappedString +
+            '"><a href="#' +
+            item +
+            '" project="' +
+            item +
+            '"><img src="' +
+            projectHome +
+            '" style="' +
+            projectCss +
+            '"/></a></div>'
+        );
+      }
 
-      var projectContainer = $(
-        '<div class="homeThumb projectClick ' +
-          item +
-          " " +
-          projectTagMappedString +
-          '" project="' +
-          item +
-          '" style="order:' +
-          projectOrder +
-          ";z-index:" +
-          projectOrder +
-          '" tags="' +
-          projectTagMappedString +
-          '"><a href="#' +
-          item +
-          '" project="' +
-          item +
-          '"><img src="' +
-          projectHome +
-          '" style="' +
-          projectCss +
-          '"/></a></div>'
-      );
+  
 
       var tagContainer = $('<div class="tags"></div>');
       if (projectTags !== undefined) {
@@ -227,7 +255,15 @@ $(function() {
         var projectCaption = projectData[project]["img"][i].caption;
         // console.log(projectPhoto,projectVideo,projectText,projectYear)
         if (projectPhoto !== "" && hide !== true) {
-          secondaryContainer.append(
+          if(projectPhoto.includes("mp4")){
+            secondaryContainer.append(
+              '<video alt="Gesture controls" autoplay="" loop="" muted="" class="block videoContainer '+
+                projectOrientation +'" playsinline=""><source src="' +
+                projectPhoto +
+                '" type="video/mp4"></video>'
+            );
+          }else{
+            secondaryContainer.append(
             '<div class="block ' +
               projectOrientation +
               '"><img class="" src="' +
@@ -235,7 +271,9 @@ $(function() {
               '"/><p class="caption"><i>' +
               projectCaption +
               "</i></p></div>"
-          );
+            );
+          }
+          
         }
         if (projectVideo !== "") {
           if (projectVideo.includes("vimeo")) {
