@@ -290,10 +290,15 @@ $(function() {
             );
           } else if (projectVideo.includes("mp4")) {
             secondaryContainer.append(
+              '<div class="block ' +
+              projectOrientation +
+              '">'+
               '<video alt="Gesture controls" autoplay="" loop="" muted="" class="block videoContainer '+
                 projectOrientation +'" playsinline=""><source src="' +
                 projectVideo +
-                '" type="video/mp4"></video>'
+                '" type="video/mp4"></video><p class="caption">' +
+                projectCaption +
+                '</p></div>'
             );
           }
         }
