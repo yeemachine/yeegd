@@ -272,6 +272,7 @@ h3.logo.folded.about {
 .secondaryContainer .external{
   border:1px solid black;
   padding:8px;
+  margin-right:8px;
 }
 .secondaryContainer .external:hover{
   background-color:black;
@@ -434,13 +435,13 @@ nav a:before{
   opacity:1;
   text-transform:uppercase
 }
-.about, .linkedin{
+.about, .linkedin, .twitter{
    font-weight:800;
   margin-top:1.25vw;
   opacity:1;
   text-transform:uppercase;
 }
-.about a, .linkedin a{
+.about a, .linkedin a, .twitter a{
   opacity:1;
   font-size:18px;
 }
@@ -527,9 +528,7 @@ nav a.selected:before{
   .hero{
     height:65vw;
   }
-  video{
-    display:none;
-  }
+
   nav{
     width: 90vw;
     height: calc(100vh - 10vw);
