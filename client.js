@@ -257,10 +257,15 @@ $(function() {
         if (projectPhoto !== "" && hide !== true) {
           if(projectPhoto.includes("mp4")){
             secondaryContainer.append(
+                 '<div class="block ' +
+              projectOrientation +
+              '">'+
               '<video alt="Gesture controls" autoplay="" loop="" muted="" class="block videoContainer '+
                 projectOrientation +'" playsinline=""><source src="' +
                 projectPhoto +
-                '" type="video/mp4"></video>'
+                '" type="video/mp4"></video><p class="caption">' +
+                projectCaption +
+                '</p></div>'
             );
           }else{
             secondaryContainer.append(
